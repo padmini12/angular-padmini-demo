@@ -10,11 +10,19 @@ export class ChildComponent implements OnInit {
   
   @Output()
   childText: EventEmitter<string> = new EventEmitter<string>();
+
   users:any[] = [];
+  errorText:string = "Loading..";
+
   constructor(private usersService:UsersService) { }
 
   ngOnInit(): void {
-    this.users =this.usersService.getAllUsers();
+    // this.users =this.usersService.getAllUsers();
+    this.usersService.getAllUsers().subscribe((data: any)=>{
+      this.users = data;
+    },(error: any)=>{
+      this.errorText = error.message;
+    });
   }
 
   passMsg(){

@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+    <tr class="dark">
+      <th>Id</th>
+      <th>Name</th>
+      <th>UserName</th>
+      <th>Email</th>
+
+    </tr>
+    <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.name | uppercase}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+
+    </tr>
+  </table>
+<div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="address">address </a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="company">company </a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

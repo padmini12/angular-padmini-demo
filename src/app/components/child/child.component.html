@@ -1,23 +1,27 @@
-<div>child works!<br>
-  <button (click)="passMsg()" >send data to parent component</button>
-  <table class="table table-bordered">
-    <tr class="dark">
-      <th>Id</th>
-      <th>Name</th>
-      <th>City</th>
-      <th>Salary</th>
-      <th>DOB</th>
-      <th>Age</th>
-    </tr>
-    <tr *ngFor = "let user of users">
-      <td>{{user.id}}</td>
-      <td>{{user.name | uppercase}}</td>
-      <td>{{user.city}}</td>
-      <td>{{user.salary | currency}}</td>
-      <td>{{user.dob | date}}</td>
-      <td>{{user.dob | age}}</td>
-    </tr>
-  </table>
+<div>
+  <!-- child works!<br>
+  <button (click)="passMsg()" >send data to parent component</button> -->
+  <div *ngIf="users.length>0; else nousers">
+    <table class="table table-bordered">
+      <tr class="dark">
+        <th>Id</th>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+
+      </tr>
+      <tr *ngFor = "let user of users">
+        <td><a [routerLink]="['/user',user.id]">{{user.id}}</a></td>
+        <td>{{user.name | uppercase}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+
+      </tr>
+    </table>
+  </div>
+  <ng-template #nousers>
+    <p class="alert alert-danger">{{errorText | json}}</p>
+  </ng-template>
   <!-- {{users | json }} -->
 
 </div>
