@@ -20,7 +20,6 @@ import { UsersService } from './services/users.service';
     AgePipe
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
