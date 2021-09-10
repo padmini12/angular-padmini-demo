@@ -1,0 +1,6 @@
+<div>parent component
+    <!-- <p [uname]="username"></p> -->
+<p style="color: green;">Input dashboard parent {{dText}}</p>
+    <p style="color: white;">{{cText}}</p>
+    <app-child (childText)="getChildText($event)"></app-child>
+</div>
